@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h3>
+        <span>{{title | translate}}</span>
+    </h3>
+</div>
+
+<div class="modal-body pad">
+    <form [formGroup]="form">
+        <formly-form [options]="options" [form]="form" [model]="model" [fields]="fields"></formly-form>
+    </form>
+</div>
+<div class="modal-footer patient-control-modal-footer">
+    <button *ngIf="isDelete" data-dismiss="modal" class="btn btn-secondary dlete float-left" (click)="emitDelete()">
+        Delete
+    </button>
+    <button data-dismiss="modal" class="btn btn-secondary cancel float-left" (click)="close()">
+        Cancel
+    </button>
+    <button data-dismiss="modal" class="btn btn-secondary save float-left" (click)="onSubmit()">
+        {{id ? 'Update': 'Create'}} {{title | translate}}
+    </button>
+</div>

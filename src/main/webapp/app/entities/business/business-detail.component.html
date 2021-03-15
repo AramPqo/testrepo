@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="business">
+            <h2><span jhiTranslate="medappointApp.business.detail.title">Business</span> {{ business.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medappointApp.business.name">Name</span></dt>
+                <dd>
+                    <span>{{ business.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.description">Description</span></dt>
+                <dd>
+                    <span>{{ business.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.email">Email</span></dt>
+                <dd>
+                    <span>{{ business.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ business.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.mobile">Mobile</span></dt>
+                <dd>
+                    <span>{{ business.mobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.website">Website</span></dt>
+                <dd>
+                    <span>{{ business.website }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.logo">Logo</span></dt>
+                <dd>
+                    <span>{{ business.logo }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.emailFooter">Email Footer</span></dt>
+                <dd>
+                    <span>{{ business.emailFooter }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.vatNumber">Vat Number</span></dt>
+                <dd>
+                    <span>{{ business.vatNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.bankName">Bank Name</span></dt>
+                <dd>
+                    <span>{{ business.bankName }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.iban">Iban</span></dt>
+                <dd>
+                    <span>{{ business.iban }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.bic">Bic</span></dt>
+                <dd>
+                    <span>{{ business.bic }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="business.currencyId">
+                        <a [routerLink]="['/currency', business.currencyId, 'view']">{{ business.currencyId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.business.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="business.locationId">
+                        <a [routerLink]="['/location', business.locationId, 'view']">{{ business.locationId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/business', business.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

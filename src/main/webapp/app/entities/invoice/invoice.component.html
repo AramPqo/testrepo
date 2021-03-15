@@ -1,0 +1,15 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="invoices" 
+    title="invoice" 
+    [selectActions]="selectActions"
+    [isCreated]="false"
+    [isOnlyView]="true"
+    [isDeleted]="false"
+    [searchByDate]="true"
+    searchBy="invoiceNumber"
+    (deleteEmit)="deleteInvoice($event);"
+    (selectedActionsEmit)="getSelectedActions($event)"
+    (actionEmit)="getAction($event)"
+    (selectedEmit)="getSelectedData($event)">
+</jhi-data-table>

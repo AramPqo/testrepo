@@ -1,0 +1,8 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="insurers" 
+    title="insurer" 
+    searchBy="abbr"
+    (deleteEmit)="deleteInsurer($event);"
+    (selectedEmit)="getSelectedData($event)">
+</jhi-data-table>

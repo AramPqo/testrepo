@@ -1,0 +1,24 @@
+{
+  "medappointApp": {
+    "serviceItem": {
+      "home": {
+        "title": "Service Items",
+        "createLabel": "Service Item erstellen",
+        "createOrEditLabel": "Service Item erstellen oder bearbeiten",
+        "notFound": "No Service Items found"
+      },
+      "created": "Service Item erstellt mit ID {{ param }}",
+      "updated": "Service Item aktualisiert mit ID {{ param }}",
+      "deleted": "Service Item gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Service Item {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Service Item"
+      },
+      "description": "Description",
+      "price": "Price",
+      "vatRate": "Vat Rate"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "medappointApp": {
+    "patient": {
+      "home": {
+        "title": "Patients",
+        "createLabel": "Create a new Patient",
+        "createOrEditLabel": "Create or edit a Patient",
+        "notFound": "No Patients found"
+      },
+      "created": "A new Patient is created with identifier {{ param }}",
+      "updated": "A Patient is updated with identifier {{ param }}",
+      "deleted": "A Patient is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Patient {{ id }}?"
+      },
+      "detail": {
+        "title": "Patient"
+      },
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "title": "Title",
+      "gender": "Gender",
+      "dateOfBirth": "Date Of Birth",
+      "email": "Email",
+      "phone": "Home Phone",
+      "workPhone": "Work Phone",
+      "mobile": "Mobile",
+      "language": "Language",
+      "insuranceNumber": "Insurance Number",
+      "occupation": "Occupation",
+      "employer": "Employer",
+      "initialDiagnose": "Initial Diagnose",
+      "yearlyReceipt": "Yearly Receipt",
+      "bluePrescription": "Blue Prescription",
+      "location": "Location",
+      "insurer": "Insurer"
+    }
+  }
+}

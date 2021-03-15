@@ -1,0 +1,88 @@
+<div [class.show]="isOpen" class="left-bar-container">
+    <div *ngIf="isAuthenticated()" class="left-bar-content">
+        <div *ngFor="let menu of menuItems" tooltipClass="left-bar-tooltip" placement="right"
+            [ngbTooltip]="resizeService.isDesktop ? ('global.leftBar.'+menu | translate) : null" [routerLink]="menu"
+            class="cp">
+            <img [src]="'./../../../content/images/'+menu+'-menu-icon.svg'">
+            <div *ngIf="!resizeService.isDesktop"> {{'medappointApp.'+menu+'.home.title' | translate}} </div>
+        </div>
+        <div class="cp invoice-icon-container">
+            <img src="./../../../content/images/invoice-menu-icon.svg">
+            <div *ngIf="!resizeService.isDesktop">
+                <span>{{'global.leftBar.invoice' | translate}} </span>
+                <img class="arrow-right" src="./../../../content/images/menu-right-arrow-icon.svg">
+            </div>
+            <ul class="entities-container">
+                <li>
+                    <a class="dropdown-item" routerLink="invoice" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">
+                        <span jhiTranslate="global.menu.entities.invoice">Invoice</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" routerLink="expense" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">
+                        <span jhiTranslate="global.menu.entities.expense">Expense</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="cp settings-icon-container">
+            <img src="./../../../content/images/settings-icon.svg">
+            <div *ngIf="!resizeService.isDesktop">
+                <span>{{'global.leftBar.settings' | translate}} </span>
+                <img class="arrow-right" src="./../../../content/images/menu-right-arrow-icon.svg">
+            </div>
+            <ul *ngIf="resizeService.isDesktop" class="entities-container">
+               <li>
+                   <a class="dropdown-item" routerLink="business" routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: true }">
+                       <span jhiTranslate="global.menu.entities.business">Business</span>
+                   </a>
+               </li>
+               <li>
+                   <a class="dropdown-item" routerLink="opening-hours" routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: true }">
+                       <span jhiTranslate="global.menu.entities.openingHours">Opening Hours</span>
+                   </a>
+               </li>
+               <li>
+                   <a class="dropdown-item" routerLink="treatment" routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: true }">
+                       <span jhiTranslate="global.menu.entities.treatment">Treatments</span>
+                   </a>
+               </li>
+               <li>
+                   <a class="dropdown-item" routerLink="service-item" routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: true }">
+                       <span jhiTranslate="global.menu.entities.serviceItem">Service Item</span>
+                   </a>
+               </li>
+               <li>
+                   <a class="dropdown-item" routerLink="insurer" routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: true }">
+                       <span jhiTranslate="global.menu.entities.insurer">Insurer</span>
+                   </a>
+               </li>
+               <li>
+                   <a class="dropdown-item" routerLink="country" routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: true }">
+                       <span jhiTranslate="global.menu.entities.country">Country</span>
+                   </a>
+               </li>
+               <li>
+                   <a class="dropdown-item" routerLink="currency" routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: true }">
+                       <span jhiTranslate="global.menu.entities.currency">Currency</span>
+                   </a>
+               </li>
+           </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- look This! Nergev@ tooltiper@ rad anelu hamar qaq -->
+<!-- https://stackoverflow.com/questions/44704226/how-to-disable-ngbtooltip-if-tooltip-template-is-empty-in-angular2 -->

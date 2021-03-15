@@ -1,0 +1,12 @@
+<div class="medappoint-button-content">
+    <div class="d-inline-block">
+        <input 
+                class="form-control hidden-inp" 
+                [(ngModel)]="itemId" 
+                [formControl]="formControl"
+                [formlyAttributes]="field">
+        <button (click)="emitEvent()" class="btn btn-primary">
+            {{field.templateOptions.label}}
+        </button>
+    </div>
+</div>

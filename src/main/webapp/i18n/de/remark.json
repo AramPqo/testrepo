@@ -1,0 +1,27 @@
+{
+  "medappointApp": {
+    "remark": {
+      "home": {
+        "title": "Anmerkungen",
+        "createLabel": "Anmerkung erstellen",
+        "createOrEditLabel": "Anmerkung erstellen oder bearbeiten",
+        "notFound": "No Anmerkungs found"
+      },
+      "created": "Anmerkung erstellt mit ID {{ param }}",
+      "updated": "Anmerkung aktualisiert mit ID {{ param }}",
+      "deleted": "Anmerkung gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Anmerkung {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Anmerkung"
+      },
+      "createdAt": "Erstellt am",
+      "colorCode": "Farbcode",
+      "title": "Betreff",
+      "content": "Inhalt",
+      "file": "File",
+      "patient": "Patient"
+    }
+  }
+}

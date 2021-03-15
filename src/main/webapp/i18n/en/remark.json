@@ -1,0 +1,27 @@
+{
+  "medappointApp": {
+    "remark": {
+      "home": {
+        "title": "Remarks",
+        "createLabel": "Create a new Remark",
+        "createOrEditLabel": "Create or edit a Remark",
+        "notFound": "No Remarks found"
+      },
+      "created": "A new Remark is created with identifier {{ param }}",
+      "updated": "A Remark is updated with identifier {{ param }}",
+      "deleted": "A Remark is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Remark {{ id }}?"
+      },
+      "detail": {
+        "title": "Remark"
+      },
+      "createdAt": "Created At",
+      "colorCode": "Color Code",
+      "title": "Title",
+      "content": "Content",
+      "file": "File",
+      "patient": "Patient"
+    }
+  }
+}

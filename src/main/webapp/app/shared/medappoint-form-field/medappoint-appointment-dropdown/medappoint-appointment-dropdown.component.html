@@ -1,0 +1,19 @@
+<div class="medappoint-dropdown-content">
+    <div ngbDropdown class="d-inline-block">
+        <label> {{field.templateOptions.label}} </label>
+        <input class="form-control hidden-inp" [(ngModel)]="itemId" [formControl]="formControl"
+            [formlyAttributes]="field">
+        <button class="medappoint-dropdown-btn" id="medAppointDp" ngbDropdownToggle>
+            {{activeItem.startDate | medappointDate:'D/M/Y/T'}} - {{activeItem.endDate | medappointDate:'HH:mm'}}
+        </button>
+
+        <div ngbDropdownMenu aria-labelledby="medAppointDp">
+            <button *ngFor="let item of items; let index = index;" 
+                    (click)="getItem(item, index);" 
+                    ngbDropdownItem
+                [class.active-item]="selectedItem === index">
+                {{item.startDate | medappointDate:'D/M/Y/T'}} - {{item.endDate | medappointDate:'HH:mm'}}
+            </button>
+        </div>
+    </div>
+</div>

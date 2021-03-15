@@ -1,0 +1,16 @@
+<div class="medappoint-datepicker-content">
+    <div *ngIf="isBlocked" class="title-contnet"> {{field.templateOptions.title}} </div>
+    <div [class.blocked]="isBlocked">
+        <label>{{field.templateOptions.label}}</label>
+        <input 
+            class="form-control" 
+            #d="ngbDatepicker" 
+            [(ngModel)]="dateValue" 
+            ngbDatepicker 
+            [formControl]="formControl" [formlyAttributes]="field">
+        <div class="date-value" (click)="d.toggle()">
+            <div>{{dateValue | medappointDate:'W/D/M/Y' }}</div> 
+            <fa-icon class="calendar-icon" icon="calendar-alt"></fa-icon>
+        </div>
+    </div>
+</div>

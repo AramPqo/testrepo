@@ -1,0 +1,8 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="locations" 
+    title="location" 
+    searchBy="city"
+    (deleteEmit)="deleteLocation($event);"
+    (selectedEmit)="getSelectedData($event)">
+</jhi-data-table>

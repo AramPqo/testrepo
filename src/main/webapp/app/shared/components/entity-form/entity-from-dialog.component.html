@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3>
+        <span> {{(id ? 'global.menu.actions.update' : 'global.menu.actions.create') | translate}} {{title | translate}} </span>
+    </h3>
+</div>
+
+<div class="modal-body pad">
+    <form [formGroup]="form">
+        <formly-form [options]="options" [form]="form" [model]="model" [fields]="fields"></formly-form>
+    </form>
+</div>
+<div class="modal-footer entity-from-modal-footer">
+    <button data-dismiss="modal" class="btn btn-secondary cancel float-left" (click)="close()">
+        Cancel
+    </button>
+    <button data-dismiss="modal" class="btn btn-secondary save float-left" (click)="onSubmit()">
+        {{(id ? 'global.menu.actions.update' : 'global.menu.actions.create') | translate}} {{title | translate}}
+    </button>
+</div>

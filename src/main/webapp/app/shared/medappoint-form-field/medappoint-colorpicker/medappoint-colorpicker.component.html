@@ -1,0 +1,14 @@
+<div class="medappoint-colorpicker-content">
+    <label>{{field.templateOptions.label}}</label>
+    <div class="color-picker" (click)="openColorPicker()">
+            <input 
+             type="color"
+             class="form-control" 
+             [(ngModel)]="selectedColor"
+             [formControl]="formControl" 
+             [formlyAttributes]="field">
+    </div>
+    <div>
+        <ng-template #container></ng-template>
+    </div>
+</div>

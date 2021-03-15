@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="insurer">
+            <h2><span jhiTranslate="medappointApp.insurer.detail.title">Insurer</span> {{ insurer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medappointApp.insurer.name">Name</span></dt>
+                <dd>
+                    <span>{{ insurer.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="medappointApp.insurer.abbr">Abbr</span></dt>
+                <dd>
+                    <span>{{ insurer.abbr }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/insurer', insurer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

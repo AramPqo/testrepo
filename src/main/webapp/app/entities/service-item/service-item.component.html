@@ -1,0 +1,7 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="serviceItems" 
+    title="serviceItem" 
+    searchBy="description"
+    (deleteEmit)="deleteServiceItem($event);"
+    (selectedEmit)="getSelectedData($event)"></jhi-data-table>

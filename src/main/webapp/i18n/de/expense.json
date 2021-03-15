@@ -1,0 +1,24 @@
+{
+    "medappointApp": {
+      "expense": {
+        "home": {
+          "title": "Expenses",
+          "createLabel": "Expense erstellen",
+          "createOrEditLabel": "Expense erstellen oder bearbeiten",
+          "notFound": "No Expenses found"
+        },
+        "created": "Expense erstellt mit ID {{ param }}",
+        "updated": "Expense aktualisiert mit ID {{ param }}",
+        "deleted": "Expense gelöscht mit ID {{ param }}",
+        "delete": {
+          "question": "Soll Expense {{ id }} wirklich dauerhaft gelöscht werden?"
+        },
+        "detail": {
+          "title": "Expense"
+        },
+        "name": "Name",
+        "abbr": "Abbr"
+      }
+    }
+  }
+  

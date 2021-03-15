@@ -1,0 +1,15 @@
+<div class="medappoint-timepicker-content">
+    <input 
+        class="form-control hidden-inp" 
+        [(ngModel)]="timeValue" 
+        [formControl]="formControl"
+        [formlyAttributes]="field">
+    <div ngbDropdown class="d-inline-block">
+        <label> {{field.templateOptions.label}} </label>
+        <button class="time-picker-btn" id="timePickerDp" ngbDropdownToggle>{{timeValue}}</button>
+        <div ngbDropdownMenu aria-labelledby="timePickerDp">
+            <button *ngFor="let time of timePicker; let index = index;" (click)="getTime(time, index)" ngbDropdownItem
+                [class.active-item]="selectedTime === index">{{time}}</button>
+        </div>
+    </div>
+</div>

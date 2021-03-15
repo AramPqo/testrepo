@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the view patient_closest_appointment.
+    -->
+    <changeSet author="ddhayr" id="createPatientWithAppointmentView-20201115121500">
+        <createView replaceIfExists="true" viewName="patient_with_appointment">SELECT p.id, (p.first_name::text || ' '::text) || p.last_name::text AS full_name, p.date_of_birth, p.phone, a2.start_date FROM patient p LEFT JOIN ( SELECT a.patient_id, min(a.start_date) AS start_date FROM appointment a WHERE a.start_date > now() GROUP BY a.patient_id) a2 ON a2.patient_id = p.id;</createView>
+    </changeSet>
+
+</databaseChangeLog>

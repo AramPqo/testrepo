@@ -1,0 +1,11 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="treatments" 
+    title="treatment" 
+    searchBy="name"
+    [formFields]="formFields"
+    [isModal]="true"
+    (deleteEmit)="deleteTreatment($event)"
+    (updateEmit)="updateTreatment($event)"
+    (selectedEmit)="getSelectedData($event)">
+</jhi-data-table>

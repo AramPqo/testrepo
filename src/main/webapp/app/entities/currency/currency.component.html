@@ -1,0 +1,8 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="currencies" 
+    title="currency" 
+    searchBy="name"
+    (deleteEmit)="deleteCurrencies($event);"
+    (selectedEmit)="getSelectedData($event)">
+</jhi-data-table>

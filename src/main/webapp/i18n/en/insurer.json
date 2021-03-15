@@ -1,0 +1,23 @@
+{
+  "medappointApp": {
+    "insurer": {
+      "home": {
+        "title": "Insurers",
+        "createLabel": "Create a new Insurer",
+        "createOrEditLabel": "Create or edit a Insurer",
+        "notFound": "No Insurers found"
+      },
+      "created": "A new Insurer is created with identifier {{ param }}",
+      "updated": "A Insurer is updated with identifier {{ param }}",
+      "deleted": "A Insurer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Insurer {{ id }}?"
+      },
+      "detail": {
+        "title": "Insurer"
+      },
+      "name": "Name",
+      "abbr": "Abbr"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<div class="title-content">
+    <label> {{field.templateOptions.label}} </label>
+    <input class="form-control hidden-inp" [(ngModel)]="itemId" [formControl]="formControl" [formlyAttributes]="field">
+</div>
+<div class="relations-content service-item-relations">
+    <div [@collectionAnimation]="'in'" class="relations d-flex cp" *ngFor="let item of items; let i = index;"
+        [class.change-content]="i === changedItem" (click)="updateItem(item, i)">
+        <ng-container *ngIf="i === changedItem; else showView">
+            <div class="service-item-dropdown" ngbDropdown placement="bottom-right" (click)="getStopPropagation($event);">
+                <div ngbDropdown class="dropdown-content">
+                    <button class="form-control" id="servceItem_field" ngbDropdownToggle>
+                        <div class="dropdown-text-content">Service Item</div>
+                    </button>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="servceItem_field">
+                        <button *ngFor="let serviceItem of serviceItems;"
+                            ngbDropdownItem>
+                            <span (click)="getStopPropagation($event); setServieItem(serviceItem, i);">{{serviceItem.description}} {{serviceItem.price}}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <form (click)="getStopPropagation($event)" name="editForm" role="form" novalidate [formGroup]="editForm">
+                <div class="service-tiem-change-content mr-1">
+                    <label for="field_description">Description</label>
+                    <div>
+                        <input class="form-control" id="field_description" type="text" name="description" formControlName="description" />
+                    </div>
+                </div>
+                <div class="service-tiem-change-content">
+                    <label for="field_price">Price</label>
+                    <div>
+                        <input class="form-control price" id="field_price" type="number" name="price"
+                            formControlName="price" />
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+        <ng-template #showView>
+            <div [ngbTooltip]="item.description" class="content cp text-left">
+                {{item.description}}
+            </div>
+            <div class="content cp mr-5 text-right">
+                {{item.price}} €
+            </div>
+        </ng-template>
+        <div class="save" [class.event-none]="!editForm.valid">
+            <span *ngIf="i === changedItem" (click)="save(item); getStopPropagation($event);">
+                <fa-icon icon="save"></fa-icon>
+            </span>
+        </div>
+        <div class="remove">
+            <span (click)="removeItem(item.id, i); getStopPropagation($event);">
+                <fa-icon icon="times"></fa-icon>
+            </span>
+        </div>
+    </div>
+    <div class="add">
+        <span (click)="createItem()">
+            <fa-icon icon="plus-circle"></fa-icon>
+        </span>
+    </div>
+</div>

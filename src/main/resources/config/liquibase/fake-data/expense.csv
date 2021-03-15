@@ -1,0 +1,2 @@
+id;business_id;date;account_number;voucher_number;name;subject;total
+1;1;2021-01-25T10:00:00;account_number1;voucher_number_1;expense_name1;subject1;3

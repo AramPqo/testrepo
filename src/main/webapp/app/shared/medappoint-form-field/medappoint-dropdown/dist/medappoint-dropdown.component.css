@@ -1,0 +1,43 @@
+.medappoint-dropdown-content .d-inline-block {
+  width: 100%;
+}
+.medappoint-dropdown-content .dropdown-menu {
+  width: 100%;
+  top: -2px !important;
+  max-height: 150px;
+  overflow: auto;
+}
+.medappoint-dropdown-content .hidden-inp {
+  width: 0;
+  opacity: 0;
+  position: absolute;
+}
+.medappoint-dropdown-content .medappoint-dropdown-btn {
+  position: relative;
+  text-align: left;
+  padding: 5px 10px;
+  border: 1px solid #c9c9c9;
+  background-color: #ffffff;
+  background-size: cover;
+  font-family: Roboto;
+  font-size: 18px;
+  color: #46555d;
+  text-decoration: none solid #46555d;
+  border-radius: 0;
+  height: 45px;
+  width: 100%;
+}
+.medappoint-dropdown-content .active-item {
+  background-color: #2C3E50;
+  color: #ffffff;
+}
+.medappoint-dropdown-content .dropdown-toggle::after {
+  vertical-align: 0.15em;
+  position: absolute;
+  right: 10px;
+  top: 17px;
+}
+
+.dropdown-item:hover {
+  outline: 1px solid #fff;
+}

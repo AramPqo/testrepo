@@ -1,0 +1,408 @@
+@import 'bootstrap-variables';
+@import '~bootstrap/scss/functions';
+@import '~bootswatch/dist/flatly/variables';
+@import '~bootstrap/scss/variables';
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open-Sans';
+    src: url('./../fonts/Open-Sans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open-Sans Bold';
+    src: url('./../fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+/* ==============================================================
+Bootstrap tweaks
+===============================================================*/
+
+* {
+    :focus {
+        outline: -webkit-focus-ring-color auto 0px;
+    }
+}
+body,
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+a:hover {
+    /* make sure browsers use the pointer cursor for anchors, even with no href */
+    cursor: pointer;
+}
+
+.flex-0 {
+    flex:0 !important;
+}
+
+.dropdown-item:hover {
+    color: $dropdown-link-hover-color;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+.patient-modal-container {
+    position: relative;
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+.save-entity-content,
+.patient-control-modal-footer,
+.entity-from-modal-footer {
+    border-top: 1px solid #c4cbd4;
+    width: 100%;
+    padding:0 15px;
+        button {
+        padding: 5px 10px;
+        border: 1px solid #009abb;
+        border-radius: 4px;
+        box-sizing: content-box;
+        color: #009abb;
+        font-weight: 600;
+        transition: 0.2s;
+        min-width: 80px;
+        height: 38px;
+        background-color: #ffffff;
+        font-family: 'Roboto';
+        font-size: 16px;
+        text-align: center;
+        margin: 10px 5px;
+        &:hover {
+            background-color:#6c757d !important;
+            color:#ffffff !important;
+            border-color: #009abb !important;
+        }
+    }
+   
+    .save {
+        background-color: #009abb;
+        color: #ffffff;
+    }
+}
+
+/* ==========================================================================
+Generic styles
+========================================================================== */
+
+
+/* other generic styles */
+
+.jh-card {
+    padding: 1.5%;
+    margin-top: 20px;
+    border: none;
+}
+
+.error {
+    color: white;
+    background-color: red;
+}
+
+.pad {
+    padding: 10px;
+}
+
+.w-40 {
+    width: 40% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
+.break {
+    white-space: normal;
+    word-break: break-all;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+.readonly {
+    background-color: #eee;
+    opacity: 1;
+}
+
+.footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.hand,
+[jhisortby] {
+    cursor: pointer;
+}
+
+
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
+
+.alerts {
+    .alert {
+        text-overflow: ellipsis;
+        pre {
+            background: none;
+            border: none;
+            font: inherit;
+            color: inherit;
+            padding: 0;
+            margin: 0;
+        }
+        .popover pre {
+            font-size: 10px;
+        }
+    }
+    .jhi-toast {
+        position: fixed;
+        width: 100%;
+        &.left {
+            left: 5px;
+        }
+        &.right {
+            right: 5px;
+        }
+        &.top {
+            top: 55px;
+        }
+        &.bottom {
+            bottom: 55px;
+        }
+    }
+}
+
+.main-container {
+    margin-left: 80px;
+    width: calc(100% - 90px);
+    height: calc(100vh - 68px);
+    overflow-x: hidden;
+}
+
+@media screen and (min-width: 480px) {
+    .alerts .jhi-toast {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-container {
+        margin-left: 0px !important;
+        width: 100% !important;
+        height: auto;
+    }
+
+    .calendar-control-dialog {
+        .modal-dialog {
+            max-width: 100% !important;
+            width: 100% !important;
+            margin: 0  !important;
+        }
+        .modal-body.pad {
+            height: 100% !important;
+        }
+        right: 0  !important; 
+        left: 0  !important;
+        width: 100%  !important;
+        top: 66px  !important;
+    }
+}
+
+
+/* ==========================================================================
+entity detail page css
+========================================================================== */
+
+.row.jh-entity-details> {
+    dd {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+    .row.jh-entity-details> {
+        dt {
+            margin-bottom: 15px;
+        }
+        dd {
+            border-bottom: 1px solid #eee;
+            padding-left: 180px;
+            margin-left: 0;
+        }
+    }
+}
+
+
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
+
+.thread-dump-modal-lock {
+    max-width: 450px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// global
+.filter-content {
+    height: 100%;
+}
+
+.form-control.filter-control {
+    border-color: #95a5a6;
+    height: 100%;
+    border-radius: 0;
+    margin-left: -1px;
+}
+
+.ui-link {
+    color: #18BC9C;
+    &:hover {
+        color: #0f7864;
+    text-decoration: underline;
+    }
+}
+
+.event-none {
+    pointer-events: none;
+}
+
+/* jhipster-needle-scss-add-main JHipster will add new css style */
+
+.calendar-backdrop {
+    border: 5px solid #fff;
+    top: 169px !important;
+    height: 78vh !important;
+    left: 99px !important;
+    width: 93% !important;
+}
+.calendar-control-dialog {
+    right: 7px;
+    left: auto;
+    width: 450px;
+    top: 145px;
+    .modal-body {
+        height: 70vh;
+        margin-bottom: 75px;
+        overflow-y: auto !important;
+        overflow: hidden;
+    }
+}
+
+button.close {
+    &:focus {
+        outline: 0px !important;
+    }
+}
+
+// form-control
+
+
+// boootsrap overrides
+
+.left-bar-tooltip {
+    opacity: 1 !important;
+    .arrow {
+        margin-left: -10px;
+        &::before {
+            border-right-color:#f0f4f5 !important;
+        }
+    }
+    .tooltip-inner {
+        width: 100px !important;
+        margin-left: -10px;
+        border-radius: 2px;
+        font-size: 12px;
+        background-color: #f0f4f5;
+        color: #46555d;
+        box-shadow:0px 1px 5px rgb(51 52 53 / 33%);
+        padding: 2px 10px;
+    }
+}
+
+@media screen and (max-width: 1430px) {
+    .calendar-backdrop {
+       width: 91% !important;
+    }
+}
+
+@media screen and (max-width: 1111px) {
+    .calendar-backdrop {
+       width: 88% !important;
+       left: 85px !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .calendar-backdrop {
+       top: 277px !important;
+       left: 0  !important;
+       width: 97% im !important;
+    }
+}
+  
+@media screen and (max-height: 2540px) {
+    .calendar-control-dialog .modal-body {
+        height: 66vh;
+    }
+}
+  
+@media screen and (max-height: 1680px) {
+    .calendar-control-dialog .modal-body {
+        height: 61vh;
+    }
+}
+  
+  
+@media screen and (max-height: 1110px) {
+    .calendar-control-dialog .modal-body {
+        height: 55vh;
+    }
+}
+  
+@media screen and (max-height: 930px) {
+    .calendar-control-dialog .modal-body {
+        height: 51vh;
+    }
+}
+
+@media screen and (max-height: 780px) {
+    .calendar-control-dialog .modal-body {
+        height: 46vh;
+    }
+}
+

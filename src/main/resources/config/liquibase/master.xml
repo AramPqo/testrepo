@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="longvarchar" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185227_added_entity_Business.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185327_added_entity_Patient.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185427_added_entity_Insurer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185527_added_entity_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185627_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185727_added_entity_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185827_added_entity_OpeningHours.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185927_added_entity_Treatment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922190027_added_entity_Remark.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922190127_added_entity_Appointment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922190227_added_entity_ServiceItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922200227_added_entity_InvoiceItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922200238_added_entity_Expense.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201107175642_added_entity_Attachment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201107175742_added_entity_AttachmentFile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201107175842_added_entity_Invoice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922190227_added_patient_with_appointment_view.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185227_added_entity_constraints_Business.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185327_added_entity_constraints_Patient.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185527_added_entity_constraints_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185827_added_entity_constraints_OpeningHours.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922185927_added_entity_constraints_Treatment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922190027_added_entity_constraints_Remark.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922190127_added_entity_constraints_Appointment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201107175542_added_entity_constraints_InvoiceItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201107175642_added_entity_constraints_Attachment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201107175842_added_entity_constraints_Invoice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210302163500_added_entity_constraints_Expense.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922198899_added_entity_Appointment_BusinessID.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200922184584_added_entity_Patient_BusinessID.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/00000000000111_initial_schema_user_business_id.xml" relativeToChangelogFile="false"/>
+</databaseChangeLog>

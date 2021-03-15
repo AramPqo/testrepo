@@ -1,0 +1,7 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="openingHours" 
+    title="openingHours" 
+    (deleteEmit)="deleteOpeningHours($event);"
+    (selectedEmit)="getSelectedData($event)">
+</jhi-data-table>

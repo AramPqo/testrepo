@@ -1,0 +1,38 @@
+{
+  "medappointApp": {
+    "business": {
+      "home": {
+        "title": "Praxis",
+        "createLabel": "Praxis erstellen",
+        "createOrEditLabel": "Praxis erstellen oder bearbeiten",
+        "notFound": "Keine Praxen gefunden"
+      },
+      "created": "Praxis erstellt mit ID {{ param }}",
+      "updated": "Praxis aktualisiert mit ID {{ param }}",
+      "deleted": "Praxis gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Praxis {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Praxis"
+      },
+      "name": "Name",
+      "description": "Beschreibung",
+      "email": "Email",
+      "phone": "Telefon",
+      "mobile": "Mobil",
+      "website": "Website",
+      "logo": "Logo",
+      "emailFooter": "Email Unterscrift",
+      "vatNumber": "Umsatzsteuernummer",
+      "bankName": "Bank",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "showPatientName": "Show Patient Name",
+      "currency": "Währung",
+      "location": "Ort",
+      "customColors": "Custom Colors",
+      "invoiceNumber": "Invoice Number"      
+    }
+  }
+}

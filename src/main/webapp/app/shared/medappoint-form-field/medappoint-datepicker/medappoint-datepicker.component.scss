@@ -1,0 +1,34 @@
+.medappoint-datepicker-content {
+    position: relative;
+    .title-contnet {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-family: 'Open-Sans';
+        font-size: 18px;
+    }
+    .date-value {
+        width: 95%;
+        position: absolute;
+        left: 10px;
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+        top: 35px;
+        cursor: text;
+        .calendar-icon {
+            color: #2c3e4f;
+        }
+    }
+    input.form-control {
+        color: transparent !important;
+    }
+    div.input-group-append {
+        display: none;
+    }
+}
+
+.blocked {
+    .date-value {
+        top: 68px;
+    }
+}

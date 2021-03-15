@@ -1,0 +1,75 @@
+<div (mousemove)="getMoveCuursor($event)" (mouseup)="getUpCuursor($event)" class="color-picker-panel">
+    <div class="colors-panel">
+        <div>
+            <div class="mb-1"> Basic Colors </div>
+            <div class="basic-colors-content colors-content">
+                <div *ngFor="let color of basicColors" class="rounded-color" [style.background]="color"
+                    (click)="selectColor(color)"></div>
+            </div>
+        </div>
+        <div>
+            <div class="mb-1"> Custom Colors </div>
+            <div class="custom-colors-content colors-content">
+                <div *ngFor="let color of customColors" class="rounded-color" [style.background]="color"></div>
+            </div>
+        </div>
+        <div class="save">
+            <span (click)="save()">Done</span>
+            <span (click)="cancel()">Cancel</span>
+        </div>
+    </div>
+    <div class="create-panel">
+        <div class="d-flex panel-row create-color-panel">
+            <div class="hue-map">
+                <button #hueCursor class="hue-cursor color-cursor"></button>
+                <canvas #hueCanvas (mousedown)="startGetHueColor($event)" class="hue-canvas"></canvas>
+            </div>
+            <div class="spectrum-map">
+                <button #spectrumCursor class="spectrum-cursor color-cursor"></button>
+                <canvas #spectrumCanvas (mousedown)="startGetSpectrumColor($event)" class="spectrum-canvas"></canvas>
+            </div>
+        </div>
+        <div class="panel-row create-color-form">
+            <div [style.background]="currentColor" class="color-content"> </div>
+            <div class="hsl-fields fields-content">
+                <form name="hslForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="hslForm">
+                    <div class="field-group">
+                        <label class="field-label">Hue:</label>
+                        <input class="field-input rgb-input" type="number" max="270" min="0" id="h" name="h"
+                            formControlName="h" />
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label">Sat:</label>
+                        <input class="field-input rgb-input" type="number" max="100" min="0" id="s" name="s"
+                            formControlName="s" />
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label">Lum:</label>
+                        <input class="field-input rgb-input" type="number" max="100" min="0" id="l" name="l"
+                            formControlName="l" />
+                    </div>
+                </form>
+            </div>
+            <div class="rgb-fields fields-content">
+                <form name="rgbForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="rgbForm">
+                    <div class="field-group">
+                        <label class="field-label">Red:</label>
+                        <input class="field-input rgb-input" type="number" max="255" min="0" id="r" name="r"
+                            formControlName="r" />
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label">Red:</label>
+                        <input class="field-input rgb-input" type="number" max="255" min="0" id="g" name="g"
+                            formControlName="g" />
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label">Red:</label>
+                        <input class="field-input rgb-input" type="number" max="255" min="0" id="b" name="b"
+                            formControlName="b" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="add-color" (click)="addCustomColor()">Add Custom Color</div>
+    </div>
+</div>

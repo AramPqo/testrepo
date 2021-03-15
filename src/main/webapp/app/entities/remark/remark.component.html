@@ -1,0 +1,8 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="remarks" 
+    title="remarks" 
+    searchBy="colorCode"
+    (deleteEmit)="deleteRemark($event);"
+    (selectedEmit)="getSelectedData($event)">
+</jhi-data-table>

@@ -1,0 +1,38 @@
+{
+  "medappointApp": {
+    "business": {
+      "home": {
+        "title": "Businesses",
+        "createLabel": "Create a new Business",
+        "createOrEditLabel": "Create or edit a Business",
+        "notFound": "No Businesses found"
+      },
+      "created": "A new Business is created with identifier {{ param }}",
+      "updated": "A Business is updated with identifier {{ param }}",
+      "deleted": "A Business is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Business {{ id }}?"
+      },
+      "detail": {
+        "title": "Business"
+      },
+      "name": "Name",
+      "description": "Description",
+      "email": "Email",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "website": "Website",
+      "logo": "Logo",
+      "emailFooter": "Email Footer",
+      "vatNumber": "Vat Number",
+      "bankName": "Bank Name",
+      "iban": "Iban",
+      "bic": "Bic",
+      "showPatientName": "Show Patient Name",
+      "currency": "Currency",
+      "location": "Location",
+      "customColors": "Custom Colors",
+      "invoiceNumber": "Invoice Number"
+    }
+  }
+}

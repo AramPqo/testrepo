@@ -1,0 +1,115 @@
+@import "~bootstrap/scss/functions";
+@import "~bootswatch/dist/flatly/variables";
+@import "~bootstrap/scss/variables";
+
+/* ==========================================================================
+Navbar
+========================================================================== */
+
+.navbar-version {
+  font-size: 0.65em;
+  color: $navbar-dark-color;
+}
+
+.dropdown-menu.menu-dropdown {
+  z-index: 1200;
+}
+
+.profile-image {
+  height: 1.75em;
+  width: 1.75em;
+}
+
+.navbar {
+  padding: 0.4rem 1rem;
+  .dropdown-item.active,
+  .dropdown-item.active:focus,
+  .dropdown-item.active:hover {
+    background-color: $dark;
+  }
+
+  ul.navbar-nav {
+    .nav-item {
+      margin-left: 0.5em;
+    }
+  }
+
+  a.nav-link {
+    font-weight: 400;
+  }
+
+  .navbar-toggler {
+    border:none;
+    &:hover {
+      color: $navbar-dark-hover-color;
+    }
+  }
+}
+
+.user-icon-content {
+  a {
+    padding-top: 5px;
+  }
+}
+
+.no-arrow {
+  .dropdown-toggle::after {
+    border: none !important;
+  }
+}
+
+
+.main-menu-toggler {
+  display: block;
+  width: 80px;
+  height: 68px;
+  text-align: center;
+  padding: 15px;
+  .bars {
+      font-size: 26px;
+      color: #778c92;
+   }
+}
+
+.main-menu-toggler.open {
+  background-color: #2c3e4e;
+  .bars {
+      color: #fff;
+  }
+}
+
+.navbar {
+  padding: 0 !important;
+}
+
+@media screen and (min-width: 600px) {
+  .logo-img {
+    background: url("../../../content/images/logo.png") no-repeat center center !important;
+    width: 200px !important;
+  }
+  .navbar {
+      padding: 0.4rem 1rem !important;
+  }
+  .navbar-expand-md .navbar-nav {
+      flex-direction: row;
+  }
+  .main-menu-toggler {
+      display: none !important;
+  }
+  .navbar-expand-md .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+  }
+  .navbar-expand-md .navbar-toggler {
+      display: none !important;
+  }
+}
+
+.logo-img {
+  background: url("../../../content/images/logo-mini.svg") no-repeat center center;
+  height: 45px;
+  width: 180px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: contain !important;
+}

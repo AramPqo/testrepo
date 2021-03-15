@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <!--
+        Added the entity Invoice.
+    -->
+    <changeSet id="20201107175842-1" author="jhipster">
+        <createTable tableName="invoice">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="invoice_number" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="invoice_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="payment_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="payment_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="recipient_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="recipient_address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="recipient_postal_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="recipient_city" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="invoice_total" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="business_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="currency_id" type="bigint">
+                <constraints nullable="true"  />
+            </column>
+            <column name="patient_id" type="bigint">
+                <constraints  nullable="true"  />
+            </column>
+            <column name="appointment_id" type="bigint">
+                <constraints nullable="true"  />
+            </column>
+            <column name="treatment_id" type="bigint">
+                <constraints nullable="true"  />
+            </column>
+        </createTable>
+        <dropDefaultValue tableName="invoice" columnName="created_at" columnDataType="datetime"/>
+    </changeSet>
+
+</databaseChangeLog>

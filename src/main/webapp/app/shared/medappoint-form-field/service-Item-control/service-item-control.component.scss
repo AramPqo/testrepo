@@ -1,0 +1,62 @@
+.service-item-relations {
+    .relations {
+        flex-wrap: wrap;
+        .service-item-dropdown {
+            width: 80%;
+        }
+    }
+    .change-content{
+        padding: 5px 2px;
+        form {
+            padding: 10px 5px;
+            display: flex;
+        }
+        .service-tiem-change-content {
+            input.form-control {
+                padding: 0 10x;
+            }          
+            input.form-control.price {
+                width: 70px;
+                padding: 0 10x;
+                font-size: 18px;
+            }          
+        }
+        .remove,
+        .save {
+            font-size: 22px;
+            padding: 0 5px;
+            opacity: 1;
+        }
+        .remove {
+            bottom: 10px;
+            right: 3px;
+        }
+        .save {
+            font-size: 18px;
+            color: #b9b9b9;
+            &:hover {
+                color: #46555d;
+            }
+        }
+    }
+}
+
+.service-item-dropdown {
+    .dropdown-menu {
+        max-height: 130px;
+        overflow: auto;
+    }
+}
+
+.ng-invalid.ng-touched {
+    border-color: #ab0000;
+}
+
+.hidden-inp {
+    width: 0;
+    opacity: 0;
+    position: absolute;
+}
+.form-control {
+    color: #46555d;
+}

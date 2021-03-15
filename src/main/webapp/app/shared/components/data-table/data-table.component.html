@@ -1,0 +1,219 @@
+<div [class.mobile-container]="!resizeService.isDesktop" class="data-table-container">
+    <div class="page-heading">
+        <div class="entities-icon-content">
+            <div class="icon">
+                <img [src]="'./../../../../content/images/'+title+'-icon.svg'">
+            </div>
+            <div class="text-capitalize title">{{('global.menu.entities.'+title) | translate}}</div>
+        </div>
+
+        <div *ngIf="isCreated" class="actions-content">
+            <button class="btn btn-primary" (click)="navigateToCreate()">
+                <span>
+                    Create a new <span class="text-capitalize">{{('global.menu.entities.'+title) | translate}}</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="displayData?.length === 0">
+        <span class="text-capitalize">{{('global.menu.entities.'+title) | translate}} {{'error.url.not.found' | translate}}</span>
+    </div>
+    <div class="col-12 entities-content" id="entities" *ngIf="displayData && displayData.length > 0">
+        <div class="table-card-box">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="row card-controls">
+                        <div ngbDropdown class="select-actions-content">
+                            <div class="custom-control custom-checkbox">
+                                <input 
+                                    type="checkbox" 
+                                    class="custom-control-input" 
+                                    id="selectAllCb"
+                                    [(ngModel)]="isSelectAll" 
+                                    (click)="selectAllData()">
+                                <label class="custom-control-label" for="selectAllCb">&nbsp;</label>
+                            </div>
+                            <button id="selectAll" ngbDropdownToggle
+                                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                type="button">
+                            </button>
+                            <div class="select-actions-btn" ngbDropdownMenu aria-labelledby="selectAll">
+                                <button *ngIf="isDeleted" ngbDropdownItem (click)="deleteRows()"> 
+                                    {{'entity.action.delete' | translate}}
+                                </button>
+                                <button 
+                                        *ngFor="let action of selectActions" 
+                                        [disabled]="action?.disabled" 
+                                        ngbDropdownItem (click)="emitSelectedActions(action.method)"> 
+                                    {{action?.label}}
+                                </button>
+                            </div>
+                        </div>
+                        <div *ngIf="searchBy" class="d-flex filter-dropdown">
+                            <div class="btn-group split-btn-group">
+                                <div class="btn-group split-btn-group">
+                                    <div *ngIf="toggleSearchBox">
+                                        <app-filter [placeholder]="'global.other.search' | translate" [data]="data"
+                                            [searchBy]="searchBy"
+                                            (emitMultipleFilteredValue)="getFilteredValue($event)">
+                                        </app-filter>
+                                    </div>
+                                    <div (click)="toggleSearchBox = !toggleSearchBox;"
+                                        *ngIf="!resizeService.isDesktop && !toggleSearchBox">
+                                        <img src="./../../../../content/images/search-icon.svg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-by-date-container d-flex" *ngIf="searchByDate">
+                            <input 
+                                class="form-control start-date" 
+                                name="dp" 
+                                [(ngModel)]="dateRange.startDate">
+                            <input 
+                                class="form-control end-date" 
+                                name="dp" 
+                                [(ngModel)]="dateRange.endDate">
+                            <fa-icon (click)="getDateRange()" class="calendar-icon" icon="calendar-alt"></fa-icon>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="resizeService.isDesktop; else showMobile">
+                    <div #modalContainer class="data-table-content overflow-hidden">
+                    <div *ngIf="isOpenModal" class="entity-form-modal-backdrop"></div>
+                        <table class="table table-fixed dataTable">
+                            <thead>
+                                <tr #tr>
+                                    <th class="custom-table-cell-width"></th>
+                                    <th #th *ngFor="let header of tableHeaders; 
+                                        let i = index; 
+                                        let last = last;" scope="col"
+                                        [style.width]="resizableColData.index === i ? resizableColData.width : columnPercentages[i]">
+                                        <div class="th-container">
+                                            <div 
+                                                class="th-content" 
+                                                sortabless 
+                                                [sortable]="header.columnsValue"
+                                                [isSortable]="header.sortable" 
+                                                (sort)="sortData($event)">
+                                                    {{header.fieldName}}
+                                                <fa-icon *ngIf="header.sortable" icon="sort"></fa-icon>
+                                            </div>
+                                        </div>
+                                        <div tableResize [index]="i" [tr]="tr" [th]="th"
+                                            [columnPercentages]="columnPercentages"
+                                            (columnDataEmit)="getColumnData($event, i)" *ngIf="!last"
+                                            class="crop-right-line">
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody [perfectScrollbar]="{}" [class.scroll]="itemsPerPage > displayData.length" #tbody>
+                                <ng-template ngFor let-row [ngForOf]="displayData" [ngForTrackBy]="trackById"
+                                    let-rowIndex="index">
+                                    <tr (click)="navigateAction(row.id, 'edit')">
+                                        <td class="custom-table-cell-width">
+                                            <div class="select-actions-content">
+                                                <div (click)="getStopPropagation($event)"
+                                                    class="custom-control custom-checkbox">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        class="custom-control-input"
+                                                        [id]="'selectCb-'+row.id" 
+                                                        [(ngModel)]="selectedRows[row.id]" 
+                                                        (ngModelChange)="getSelectedRow(row)">
+                                                    <label class="custom-control-label"
+                                                        [for]="'selectCb-'+row.id">&nbsp;</label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td
+                                            #td 
+                                            *ngFor="let header of tableHeaders; let tdIdx = index;"
+                                            class="cp" 
+                                            [style.width]="resizableColData.index === tdIdx ? resizableColData.width : columnPercentages[tdIdx]">
+                                            <div class="td-container d-flex align-items-center">
+                                                <div class="text-content" 
+                                                     [class.ui-link]="!!header['navigateUrl']"
+                                                     (click)="navigateToCollection(row, header['navigateUrl'], header['columnsValue'], $event)">
+                                                    <ng-container *ngIf="!header.isIcon; else showIcon"> 
+                                                        {{ row[header.columnsValue] }}
+                                                    </ng-container>
+                                                    <ng-template #showIcon>
+                                                        <img
+                                                            [class.disabled]="row[header.columnsValue].disabled"
+                                                            (click)="getStopPropagation($event); emitAction(row)" 
+                                                            [src]="'./../../../../content/images/'+row[header.columnsValue].iconName+'.svg'" 
+                                                            alt="icon">
+                                                    </ng-template>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </ng-template>
+                            </tbody>
+                        </table>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="resizeService.isDesktop && displayData?.length !== 0">
+        <div class="table-footer">
+            <div *ngIf="selectedMode !== 'fit'" class="item-count-content">
+                Displaying
+                {{ (itemsPerPage * paginationPage) > displayData.length ? displayData.length : (itemsPerPage *
+                paginationPage)}}
+                of {{totalItems}} entries </div>
+            <div class="page-size text-right">
+                <div class="btn-group split-btn-group">
+                    <div class="btn btn-outline-secondary">{{selectedMode}}</div>
+                    <button (click)="pageSizeToggle = !pageSizeToggle"
+                        class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                        type="button">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu drop-up" [ngClass]="{show: pageSizeToggle}">
+                        <a class="dropdown-item" *ngFor="let item of tableModeItems"
+                            (click)="changeMode(item); pageSizeToggle = !pageSizeToggle"
+                            [ngClass]="{'d-none': item === selectedMode}">
+                            {{item}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination-content" [class.flex-0]="selectedMode === 'fit'">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="paginationPage" [pageSize]="itemsPerPage"
+                    [maxSize]="5" [rotate]="true" (pageChange)="getPageChange()">
+                </ngb-pagination>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #showMobile>
+        <div [perfectScrollbar]="{}" class="mobile-table-container">
+            <div *ngFor="let row of displayData" class="table-card-container">
+                <div *ngFor="let header of tableHeaders" class="table-card-body"
+                    (click)="navigateAction(row.id, 'edit');"
+                    infiniteScroll 
+                    (scrolled)="onScroll()">
+                    <div class="header">{{header.fieldName}}</div>
+                    <div class="body">{{ row[header.columnsValue] }}</div>
+                </div>
+            </div>
+            <div (click)="onScroll('bottom');" class="scroll-to-bottom">
+                <img src="./../../../../content/images/bottom-arrow.svg" alt="bottom">
+            </div>
+        </div>
+        <!-- Watch This!
+            Position@ absolute ktas, slaq@ kdnes u onScroll kkanches 
+            isk en dataCount@ fiti pes khashves kjoges inchqana incha vonca
+        background: rgb(82,82,82);
+        background: linear-gradient(0deg, rgba(82,82,82,1) 0%, rgba(255,255,255,1) 100%);
+         -->
+    </ng-template>
+</div>

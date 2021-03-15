@@ -1,0 +1,99 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-invoice-heading">Create or edit a
+                Invoice</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_invoiceNumber">Invoice Number</label>
+                    <input type="text" class="form-control" name="invoiceNumber" id="field_invoiceNumber"
+                        formControlName="invoiceNumber" />
+                    <div
+                        *ngIf="editForm.get('invoiceNumber')!.invalid && (editForm.get('invoiceNumber')!.dirty || editForm.get('invoiceNumber')!.touched)">
+                        <small class="form-text text-danger" *ngIf="editForm.get('invoiceNumber')?.errors?.required"
+                            jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_recipientName">Recipient Name</label>
+                    <input type="text" class="form-control" name="recipientName" id="field_recipientName"
+                        formControlName="recipientName" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_recipientCity">Recipient City</label>
+                    <input type="text" class="form-control" name="recipientCity" id="field_recipientCity"
+                        formControlName="recipientCity" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_invoiceStatus">Invoice Status</label>
+                    <input type="text" class="form-control" name="invoiceStatus" id="field_invoiceStatus"
+                        formControlName="invoiceStatus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paymentType">Payment Type</label>
+                    <input type="text" class="form-control" name="paymentType" id="field_paymentType"
+                        formControlName="paymentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paymentStatus">Payment Status</label>
+                    <input type="text" class="form-control" name="paymentStatus" id="field_paymentStatus"
+                        formControlName="paymentStatus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_patient">Patient</label>
+                    <select class="form-control" id="field_patient" name="patient" formControlName="patientId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="patientOption.id" *ngFor="let patientOption of patients;">{{ patientOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_appointment">Appointment</label>
+                    <select class="form-control" id="field_appointment" name="appointment" formControlName="appointmentId">
+                        <option [ngValue]="appointmentOption.id" *ngFor="let appointmentOption of appointments;">{{ appointmentOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medappointApp.appointment.treatment" for="field_treatment">Treatment</label>
+                    <select class="form-control" id="field_treatment" name="treatment" formControlName="treatmentId">
+                        <option [ngValue]="treatmentOption.id" *ngFor="let treatmentOption of treatments;">{{ treatmentOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_invoiceTotal">Invoice Total</label>
+                    <input type="text" class="form-control" name="invoiceTotal" id="field_invoiceTotal"
+                        formControlName="invoiceTotal" />
+                </div>
+            </div>
+
+            <div class="text-right save-entity-content">
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving"
+                    class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<input class="form-control hidden-inp" [(ngModel)]="itemId" [formControl]="formControl" [formlyAttributes]="field">
+<label> {{field.templateOptions.label}} </label>
+<app-filter 
+    placeholder="Search Patient"
+    [data]="displayItems"
+    [defaultValue]="activeItem"
+    [searchBy]="searchBy"
+    [disabled]="disabled"
+    (emitFocusEvent)="getFocusEvent($event)"
+    (emitMultipleFilteredValue)="getFilteredValue($event)">
+</app-filter>
+<div *ngIf="isShowDropdown" class="medappoint-search-content">
+    <button *ngFor="let item of items" (click)="setItem(item)" class="dropdown-item">
+        {{item.fullName}}
+    </button>
+</div>

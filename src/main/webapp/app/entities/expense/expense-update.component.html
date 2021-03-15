@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate [formGroup]="editForm">
+            <h2 id="jhi-expense-heading" jhiTranslate="medappointApp.expense.home.createOrEditLabel">Create or edit a
+                Expense</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" ngbDropdown placement="bottom-right">
+                    <label for="business_field"> Business </label>
+                    <div ngbDropdown class="dropdown-content">
+                        <button class="form-control" id="business_field" ngbDropdownToggle>
+                            {{dropdownsForm.business}}
+                        </button>
+                        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="business_field">
+                            <button *ngFor="let c of business; let index = index"
+                                (click)="setExpenseItem(c, 'business', 'name')" ngbDropdownItem
+                                [class.active-item]="selectedItem === index">
+                                <span>{{c.name}}</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="medappointApp.expense.name"
+                            for="field_name">Name</label>
+                        <input type="text" class="form-control" name="name" id="field_name" formControlName="name" />
+                        <div
+                            *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required"
+                                jhiTranslate="entity.validation.required">
+                                This field is required.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" for="field_date"> Date</label>
+                        <div class="d-flex">
+                            <input id="field_date" type="date" class="form-control" name="date" formControlName="date"
+                                placeholder="YYYY-MM-DD HH:mm" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_accountNumber"> Account Number </label>
+                    <input type="text" class="form-control" name="accountNumber" id="field_accountNumber"
+                        formControlName="accountNumber" />
+                    <div class="info-container">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_voucherNumber"> Voucher Number </label>
+                    <input type="text" class="form-control" name="voucherNumber" id="field_voucherNumber"
+                        formControlName="voucherNumber" />
+                    <div class="info-container">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_subject"> Subject </label>
+                    <input type="text" class="form-control" name="subject" id="field_subject"
+                        formControlName="subject" />
+                    <div class="info-container">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_total"> Total </label>
+                    <input type="text" class="form-control" name="total" id="field_total" formControlName="total" />
+                    <div class="info-container">
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+
+                    <button type="submit" (click)="save()" id="save-entity" [disabled]="editForm.invalid || isSaving"
+                        class="btn btn-primary">
+                        <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

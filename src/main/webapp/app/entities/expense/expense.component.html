@@ -1,0 +1,12 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="expenses" 
+    title="expense" 
+    searchBy="name"
+    [isDeleted]="false"
+    [searchByDate]="true"
+    [isModal]="true"
+    [selectActions]="selectActions"
+    (deleteEmit)="deleteExpense($event);"
+    (selectedEmit)="getSelectedData($event)">
+</jhi-data-table>

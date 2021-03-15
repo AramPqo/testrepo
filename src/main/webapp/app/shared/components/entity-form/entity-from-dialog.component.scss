@@ -1,0 +1,37 @@
+.entity-form-dialog.modal  {
+    right: -1px !important;
+    top: -28px;
+    position: absolute;
+    z-index: 999999;
+    height: 104%;
+    overflow: hidden;
+    left: auto;
+    width: 430px;
+    border: 1px solid #c9c9c9;
+    .modal-content {
+        border: none !important;
+        border-radius: 0 !important;
+    }
+    .modal-body {
+        height: calc(100vh - 480px);
+        overflow: auto;
+    }
+    .modal-footer {
+        padding: 0;
+    }
+}
+
+.form-control:invalid, 
+.form-control.is-invalid {
+    border-color: #AB0000 !important ;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,233 @@
+.form-control {
+  padding: 0px 8px;
+  border: 1px solid #c9c9c9;
+  background-size: cover;
+  font-family: Roboto;
+  font-size: 18px;
+  text-decoration: none solid #c9c9c9;
+  border-radius: 0 !important;
+}
+.form-control:focus {
+  box-shadow: 0 0 0 0.05rem rgba(44, 62, 80, 0.25);
+}
+
+.d-flex .patient-inline {
+  width: 40%;
+}
+
+.accordeon-content {
+  border: 1px solid #c9c9c9;
+  border-top: none;
+  height: 100%;
+}
+
+.relations-content {
+  color: #46555d;
+}
+.relations-content .d-flex {
+  background-color: #FFFFFF;
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid #6c757d;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.relations-content .d-flex:first-child {
+  border-top: 1px solid #D6D8D9;
+}
+.relations-content .d-flex .avatar {
+  width: 30px;
+  height: 30px;
+  background-color: #DADADA;
+  border-radius: 60%;
+  position: absolute;
+  margin-right: 35px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  justify-content: center;
+  font-size: 16px;
+}
+.relations-content .d-flex .date {
+  margin-right: 15px;
+  flex: 1;
+}
+.relations-content .d-flex .avatar-date {
+  margin-left: 35px;
+}
+.relations-content .d-flex .content {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.relations-content .d-flex .remove {
+  position: absolute;
+  right: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #b9b9b9;
+  padding: 0px 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+.relations-content .d-flex .remove span {
+  transition: 0.3s;
+}
+.relations-content .d-flex .remove span:hover {
+  color: #ab0000;
+}
+.relations-content .d-flex:hover .remove {
+  opacity: 1;
+}
+.relations-content .add {
+  text-align: right;
+  margin: 5px;
+  margin-right: 0;
+  color: #b9b9b9;
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.relations-content .add:hover {
+  opacity: 1;
+}
+.relations-content .add span {
+  transition: 0.3s;
+  padding: 0 10px;
+  font-size: 25px;
+}
+.relations-content .add span:hover {
+  color: #208710;
+}
+
+.relations-content.service-item-relations {
+  border: 1px solid #c9c9c9;
+}
+
+.right-block {
+  margin-top: 30px;
+}
+
+::ng-deep .accordion .card-header {
+  border: none !important;
+  padding: 0px 0;
+  text-align: center;
+  border-radius: 0 !important;
+  margin-bottom: 1px !important;
+}
+
+::ng-deep .accordion .card-body {
+  padding: 0px !important;
+}
+
+::ng-deep .accordion .card {
+  border-radius: 0 !important;
+}
+
+::ng-deep .accordion .btn.accordeon-btn {
+  font-weight: bold;
+  color: #46555d;
+  box-shadow: none !important;
+  background-color: #e7ecee;
+}
+
+.page-heading {
+  box-shadow: 0px 3px 0px -1px #1996b8;
+  position: relative;
+}
+.page-heading span {
+  font-family: Open Sans Bold;
+  font-weight: bold;
+  font-style: normal;
+  color: #46555d;
+  font-size: 28px;
+  margin-left: 42px;
+}
+.page-heading .icon {
+  position: absolute;
+  top: -2px;
+}
+.page-heading .icon img.plus-icon {
+  position: absolute;
+  top: 27.5px;
+  left: 23px;
+}
+
+.update-content {
+  margin-top: 20px;
+}
+
+.patient-update-content {
+  font-family: "Open Sans", sans-serif;
+}
+
+.text-right button {
+  width: 104px;
+  height: 38px;
+  padding: 0px 11px;
+  border: 1px solid #6c757d;
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  color: #6c757d;
+  text-decoration: none solid #6c757d;
+  text-align: center;
+  border-radius: 0;
+  margin: 20px 10px;
+}
+.text-right button:hover {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.patient-modal-backdrop {
+  background: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  width: calc(100vw - 178px);
+  height: 102%;
+  z-index: 999;
+  left: 15px;
+  top: -18px;
+}
+
+::ng-deep .modal-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+::ng-deep .update-content .patient-control-dialog {
+  right: 14px !important;
+  top: -18px;
+}
+
+::ng-deep .update-content .modal {
+  position: absolute;
+  z-index: 999;
+}
+
+.page-header {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.text-right .canel {
+  background-color: #dadada;
+}
+
+.text-right .save {
+  background-color: #dadada;
+}
+
+@media only screen and (max-width: 1454px) {
+  .patient-modal-backdrop {
+    width: calc(100vw - 160px) !important;
+  }
+}
+@media only screen and (max-width: 1018px) {
+  .patient-modal-backdrop {
+    width: calc(100vw - 150px) !important;
+  }
+}

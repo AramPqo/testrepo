@@ -1,0 +1,326 @@
+<div class="row justify-content-center patient-update-content">
+    <div class="col-12 page-header">
+        <h2 class="page-heading" id="page-heading">
+            <div class="icon">
+                <img class="users" width="27" src="./../../../content/images/users-dark.svg">
+                <img class="plus-icon" width="14" src="./../../../content/images/plus-dark.svg">
+            </div>
+            <span jhiTranslate="medappointApp.patient.detail.title">Patient</span>
+        </h2>
+
+        <div #modalContainer class="row update-content patient-modal-container">
+            <div *ngIf="isOpenModal" class="patient-modal-backdrop"></div>
+            <jhi-alert-error></jhi-alert-error>
+
+            <div class="col-md-6">
+                <form name="editForm" role="form" novalidate [formGroup]="editForm">
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="medappointApp.patient.firstName"
+                            for="field_firstName">First Name</label>
+                        <input type="text" class="form-control" name="firstName" id="field_firstName"
+                            formControlName="firstName" />
+                        <div class="info-container">
+                            <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                            <small class="info-text"> This field is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="medappointApp.patient.lastName"
+                            for="field_lastName">Last Name</label>
+                        <input type="text" class="form-control" name="lastName" id="field_lastName"
+                            formControlName="lastName" />
+                        <div class="info-container">
+                            <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                            <small class="info-text"> This field is required.</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6" ngbDropdown placement="bottom-right">
+                            <label class="form-control-label" for="gender_field"> Gender </label>
+                            <div ngbDropdown class="dropdown-content">
+                                <button class="form-control" id="gender_field" ngbDropdownToggle>
+                                    <div class="dropdown-text-content">{{dropdownsForm.gender}}</div>
+                                </button>
+                                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="gender_field">
+                                    <button *ngFor="let g of gender; let index = index" (click)="setGender(g)"
+                                        ngbDropdownItem [class.active-item]="selectedItem === index">
+                                        <span>{{g}}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="form-control-label" jhiTranslate="medappointApp.patient.dateOfBirth"
+                                for="field_dateOfBirth">Date Of Birth</label>
+                            <div class="d-flex">
+                                <input id="field_dateOfBirth" type="date" class="form-control" name="dateOfBirth"
+                                    formControlName="dateOfBirth" placeholder="YYYY-MM-DD HH:mm" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6" ngbDropdown placement="bottom-right">
+                            <label class="form-control-label" jhiTranslate="medappointApp.patient.workPhone"
+                                for="field_workPhone">Work Phone</label>
+                            <input type="text" class="form-control" name="workPhone" id="field_workPhone"
+                                formControlName="workPhone" />
+                            <div class="info-container">
+                                <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                                <small class="info-text"> This field is required.</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="form-control-label" jhiTranslate="medappointApp.patient.mobile"
+                                for="field_mobile">Mobile</label>
+                            <input type="text" class="form-control" name="mobile" id="field_mobile"
+                                formControlName="mobile" />
+                            <div class="info-container">
+                                <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                                <small class="info-text"> This field is required.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="form-control-label" jhiTranslate="medappointApp.patient.email"
+                                for="field_email">Email</label>
+                            <input type="email" class="form-control" name="email" id="field_email"
+                                formControlName="email" />
+                            <div class="info-container">
+                                <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                                <small
+                                    *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)"
+                                    class="info-text">
+                                    <span *ngIf="editForm.get('email')?.errors?.email">Please enter the correct email
+                                        address</span>
+                                    <span *ngIf="!(editForm.get('email')?.errors?.email)">This field is required.</span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="form-control-label" jhiTranslate="medappointApp.patient.phone"
+                                for="field_phone">Phone</label>
+                            <input type="text" class="form-control" name="phone" id="field_phone"
+                                formControlName="phone" />
+                            <div class="info-container">
+                                <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                                <small class="info-text"> This field is required.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div [formGroup]="locationForm" class="location-container">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="form-control-label" for="field_streetAdress">Street Address</label>
+                                <input type="text" class="form-control" name="streetAddress" id="field_streetAddress"
+                                    formControlName="streetAddress" />
+                                <div class="info-container">
+                                    <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                                    <small class="info-text"> This field is required.</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label class="form-control-label" for="field_postalCode">Postal Code</label>
+                                <input id="field_postalCode" class="form-control" name="postalCode"
+                                    formControlName="postalCode" />
+                                <div class="info-container">
+                                    <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                                    <small class="info-text"> This field is required.</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label class="form-control-label" for="field_city">City</label>
+                                <div class="d-flex">
+                                    <input id="field_city" class="form-control" name="city" formControlName="city" />
+                                    <div class="info-container">
+                                        <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                                        <small class="info-text"> This field is required.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-control-label" for="field_state">State</label>
+                                <input type="text" class="form-control" name="state" id="field_state"
+                                    formControlName="state" />
+                                <div class="info-container">
+                                    <fa-icon class="info-icon" icon="info-circle"></fa-icon>
+                                    <small class="info-text"> This field is required.</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6" ngbDropdown placement="bottom-right">
+                                <label class="form-control-label" for="country_field"> Country </label>
+                                <div ngbDropdown class="dropdown-content">
+                                    <button class="form-control" id="country_field" ngbDropdownToggle>
+                                        <div class="dropdown-text-content">{{dropdownsForm.country}}</div>
+                                    </button>
+                                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="country_field">
+                                        <button *ngFor="let c of countries; let index = index"
+                                            (click)="setPatientItem(c, 'country', 'name', true)" ngbDropdownItem
+                                            [class.active-item]="selectedItem === index">
+                                            <span>{{c.name}}</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div
+                                    *ngIf="locationForm.get('countryId')!.invalid && (locationForm.get('countryId')!.dirty || locationForm.get('countryId')!.touched)">
+                                    <small class="form-text text-danger"
+                                        *ngIf="locationForm.get('countryId')?.errors?.required"
+                                        jhiTranslate="entity.validation.required">
+                                        This field is required.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6" ngbDropdown placement="bottom-right">
+                            <label class="form-control-label" for="paymentType_field"> Payment Type </label>
+                            <div ngbDropdown class="dropdown-content">
+                                <button class="form-control" id="paymentType_field" ngbDropdownToggle>
+                                    <div class="dropdown-text-content">{{dropdownsForm.paymentType}}</div>
+                                </button>
+                                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="paymentType_field">
+                                    <button *ngFor="let p of paymentType; let index = index" (click)="setPaymentType(p)"
+                                        ngbDropdownItem [class.active-item]="selectedItem === index">
+                                        <span>{{p}}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group  col-md-6" ngbDropdown placement="bottom-right">
+                            <label class="form-control-label" for="insurer_field"> Insurer </label>
+                            <div ngbDropdown class="dropdown-content">
+                                <button class="form-control" id="insurer_field" ngbDropdownToggle>
+                                    <div class="dropdown-text-content">{{dropdownsForm.insurer}}</div>
+                                </button>
+                                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="insurer_field">
+                                    <button *ngFor="let i of insurers; let index = index"
+                                        (click)="setPatientItem(i, 'insurer', 'name')" ngbDropdownItem
+                                        [class.active-item]="selectedItem === index">
+                                        <span>{{i.name}}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="form-check custom-control custom-checkbox d-flex">
+                                <input class="form-check-input custom-control-input" type="checkbox" id="yearlyReceipt"
+                                    name="yearlyReceipt" formControlName="yearlyReceipt">
+                                <label class="form-check-label custom-control-label" for="yearlyReceipt">
+                                </label>
+                                <div jhiTranslate="medappointApp.patient.yearlyReceipt">Yearly Receipt</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check custom-control custom-checkbox d-flex">
+                                <input class="form-check-input custom-control-input" type="checkbox"
+                                    id="bluePrescription" name="bluePrescription" formControlName="bluePrescription">
+                                <label class="form-check-label custom-control-label" for="bluePrescription"></label>
+                                <div jhiTranslate="medappointApp.patient.bluePrescription">Blue Prescription</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-6 right-block">
+                <div class="accordeon-warning" *ngIf="editForm.invalid">
+                    <fa-icon class="info-icon cp" icon="info-circle"></fa-icon>
+                    <span style="top: -40px" class="info-text">Please fill in required patient fields first</span>
+                </div>
+                <div class="accordeon-content">
+                    <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+                        <ngb-panel *ngFor="let patientControl of patientControls; let i = index;"
+                            [disabled]="editForm.invalid">
+                            <ng-template ngbPanelHeader>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <button ngbPanelToggle class="btn accordeon-btn container-fluid text-left">
+                                        {{patientControl.title | translate}}
+                                        <img src="./../../../content/images/accordeon-arrow.svg"
+                                            class="accordeon-arrow">
+                                    </button>
+                                </div>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <div class="relations-content">
+                                    <div [@collectionAnimation]="'in'"
+                                        *ngFor="let control of patientControl.control; trackBy: trackById; let last = last;"
+                                        class="d-flex cp relations" 
+                                        [class.last]="last"
+                                        (click)="updateControl(patientControl, i, control.id)">
+                                        <div *ngIf="control.userName" class="avatar text-uppercase">
+                                            {{control.userName}}
+                                        </div>
+                                        <div [class.avatar-date]="control.userName" class="date">
+                                            <ng-container *ngIf="patientControl.isShowTime; else showTime">
+                                                {{control.date | medappointDate:'D/M/Y/T' }}
+                                            </ng-container>
+                                            <ng-template #showTime>
+                                                {{control.date ? (control.date | date:'mediumDate'): '-'}}
+                                            </ng-template>
+                                        </div>
+                                        <ng-container
+                                            *ngIf="patientControl.code !== 'invoice'; else showInvoice;">
+                                            <div class="content cp mr-5 klir" 
+                                                 [ngbTooltip]="control.content"
+                                                container="body">
+                                                {{control.content}}
+                                            </div>
+                                        </ng-container>
+                                        <ng-template #showInvoice>
+                                            <div *ngFor="let content of control.content;"
+                                                class="content cp invoice-content"
+                                                [class.pending]="content === 'PENDING'"
+                                                [class.paid]="content === 'PAID'"
+                                                container="body">
+                                                {{content ? content : '-'}}
+                                            </div>
+                                        </ng-template>
+                                        <div *ngIf="patientControl.code !== 'invoice'" class="remove"
+                                            (click)="removeControl(patientControl, i, control.id); getStopPropagation($event);">
+                                            <fa-icon class="delete-icon" icon="trash-alt"></fa-icon>
+                                        </div>
+                                    </div>
+                                    <div class="add">
+                                        <span (click)="updateControl(patientControl, i)">
+                                            <img class="add-icon cp" src="../../../content/images/close-icon.svg">
+                                        </span>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-panel>
+
+                    </ngb-accordion>
+                </div>
+            </div>
+            <div class="text-right save-entity-content">
+                <button type="button" id="cancel-save" class="btn btn-secondary cancel" (click)="previousState()">
+                    <span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="button" (click)="save()" id="save-entity" [disabled]="editForm.invalid || isSaving"
+                    class="btn btn-primary save">
+                    <span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

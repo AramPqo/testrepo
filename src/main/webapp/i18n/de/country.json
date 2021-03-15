@@ -1,0 +1,22 @@
+{
+  "medappointApp": {
+    "country": {
+      "home": {
+        "title": "Länder",
+        "createLabel": "Land erstellen",
+        "createOrEditLabel": "Land erstellen oder bearbeiten",
+        "notFound": "Keine Länder gefunden"
+      },
+      "created": "Land erstellt mit ID {{ param }}",
+      "updated": "Land aktualisiert mit ID {{ param }}",
+      "deleted": "Land gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Land {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Land"
+      },
+      "name": "Name"
+    }
+  }
+}

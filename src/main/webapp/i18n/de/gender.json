@@ -1,0 +1,10 @@
+{
+  "medappointApp": {
+    "Gender": {
+      "null": "",
+      "MALE": "Männlich",
+      "FEMALE": "Weiblich",
+      "DIVERSE": "Divers"
+    }
+  }
+}

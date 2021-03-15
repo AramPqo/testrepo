@@ -1,0 +1,39 @@
+{
+  "medappointApp": {
+    "patient": {
+      "home": {
+        "title": "Patienten",
+        "createLabel": "Patient erstellen",
+        "createOrEditLabel": "Patient erstellen oder bearbeiten",
+        "notFound": "Keine Patienten gefunden"
+      },
+      "created": "Patient erstellt mit ID {{ param }}",
+      "updated": "Patient aktualisiert mit ID {{ param }}",
+      "deleted": "Patient gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Patient {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Patient"
+      },
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "title": "Titel",
+      "gender": "Geschlecht",
+      "dateOfBirth": "Geburtsdatum",
+      "email": "Email",
+      "phone": "Home Telefon",
+      "workPhone": "Work Phone",
+      "mobile": "Mobil",
+      "language": "Sprache",
+      "insuranceNumber": "Versicherungsnummer",
+      "occupation": "Beruf",
+      "employer": "Arbeitgeber",
+      "initialDiagnose": "Initiale Diagnose",
+      "yearlyReceipt": "Yearly Receipt",
+      "bluePrescription": "Blue Prescription",
+      "location": "Ort",
+      "insurer": "Versicherung"
+    }
+  }
+}

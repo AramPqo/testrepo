@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity OpeningHours.
+    -->
+    <changeSet id="20200922185827-1" author="jhipster">
+        <createTable tableName="opening_hours">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="day_of_week" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="start_time" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="end_time" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="business_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20200922185827-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/opening_hours.csv"
+                  separator=";"
+                  tableName="opening_hours">
+            <column name="id" type="numeric"/>
+            <column name="day_of_week" type="string"/>
+            <column name="start_time" type="string"/>
+            <column name="end_time" type="string"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

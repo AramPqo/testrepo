@@ -1,0 +1,8 @@
+<div fileDragDrop (filesChangeEmiter)="onFilesChange($event)" class="attachment-container">
+    <div class="content">
+        <fa-icon icon="paperclip"></fa-icon>
+        <input class="file-input" type="file" [formControl]="formControl" [formlyAttributes]="field" (change)="onFilesChange($event)">
+        <span class="file-name">{{fileName}}</span>
+        <div class="bottom">Drop file here to uppload</div>
+    </div>
+</div>

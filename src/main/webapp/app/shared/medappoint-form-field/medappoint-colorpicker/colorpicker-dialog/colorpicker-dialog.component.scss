@@ -1,0 +1,238 @@
+
+// TinyColor Styles
+
+$color-ui-panel: #1F232A;
+$color-ui-panel-dark: #15191C;
+$color-ui-panel-light: #2A3137;
+$color-ui-border: #364347;
+$color-input-bg: #15191C;
+$color-swatch-border: #fff;
+$color-text: #8B949A;
+$spacer: 10px;
+$map-height: 200px;
+$input-height:40px;
+$swatch-width:32px;
+$swatch-space: 4px;
+$swatches-width: (6*$swatch-width) + (5*$swatch-space);
+$map-width: $swatches-width;
+$eyedropper-width: $swatch-width*2 + $swatch-space;
+$window-width:$swatches-width + $eyedropper-width + $spacer*3;
+$spectrum-cursor-width: 30px;
+
+.color-picker-panel{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #dee2e6;
+  bottom: 25px;
+  background: #fff;
+  padding: 10px;
+  width: 100%;
+  height: 350px;
+}
+
+.create-color-panel {
+  height: 60%;
+  margin: 10px 0px 6px 0px;
+}
+
+.create-color-form {
+  display: flex;
+  .color-content {
+    flex: 2;
+    outline: #dee2e6 solid 1px;
+  }
+  .fields-content {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .rgb-fields {
+    
+  }
+  .hsl-fields {
+    margin: 0 5px;
+  }
+  .field-group {
+    display: flex;
+    align-items: center;
+    margin: 1px 0;
+    label {
+      margin: 0 5px 0 0;
+      width: 20px;
+    font-size: 10px;
+    }
+    input {
+      width: 30px;
+      border: 1px solid #dee2e6;
+    }
+  }
+}
+
+.panel-row{
+  position:relative;
+  &:first-child{
+    margin-top:10px;
+    margin-bottom: $spacer - $swatch-space;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.colors-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: 600;
+  flex:2;
+  text-align: left;
+  .save {
+    span {
+      padding-right: 3px;
+      color: #009abb;
+      cursor: pointer;
+    }
+  }
+}
+
+.create-panel {
+  flex: 2.5;
+}
+
+.panel-header{
+  background:$color-ui-panel-dark;
+  padding:8px;
+  margin:0 -10px $spacer;
+  text-align:center;
+}
+
+.swatch{
+  display:inline-block;
+  width:$swatch-width;
+  height:$swatch-width;
+  background:#ccc;
+  border-radius:4px;
+  margin-left:4px;
+  margin-bottom:4px;
+  box-sizing:border-box;
+  border:2px solid $color-ui-border;
+  cursor:pointer;
+}
+
+.default-swatches{
+  width:$swatches-width;
+  .swatch:nth-child(6n + 1){
+    margin-left:0;
+  }
+}
+
+.color-cursor{
+  border-radius:100%;
+  background:#ccc;
+  box-sizing:border-box;
+  position:absolute;
+  pointer-events:none;
+  z-index:2;
+  border:2px solid $color-swatch-border;
+  transition: all .2s ease;
+  
+  &.dragging{
+    transition:none;
+  }
+  
+  &.spectrum-cursor{
+    cursor: pointer;
+    width:$spectrum-cursor-width;
+    height:$spectrum-cursor-width;
+    margin-left:- $spectrum-cursor-width/2;
+    margin-top:- $spectrum-cursor-width/2;
+    top:0;
+    left:0;
+  }
+
+  &.hue-cursor{
+    top:0;
+    left:50%;
+    height:20px;
+    width:20px;
+    margin-top:-10px;
+    margin-left:-10px;
+    pointer-events:none;
+  }
+}
+
+.spectrum-map{
+  position:relative;
+  width:200px;
+  overflow:hidden;
+}
+
+.spectrum-canvas{
+  cursor: pointer;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#ccc;
+}
+
+.hue-map{
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left: 210px;
+  width:$spacer;
+  height: 100%;
+}
+
+.hue-canvas{
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#ccc;
+}
+
+.colors-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rounded-color {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.add-color {
+  margin-top: 10px;
+  border: 1px solid #009abb;
+  border-radius: 4px;
+  color: #009abb;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

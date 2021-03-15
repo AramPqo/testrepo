@@ -1,0 +1,25 @@
+{
+  "medappointApp": {
+    "openingHours": {
+      "home": {
+        "title": "Opening Hours",
+        "createLabel": "Create a new Opening Hours",
+        "createOrEditLabel": "Create or edit a Opening Hours",
+        "notFound": "No Opening Hours found"
+      },
+      "created": "A new Opening Hours is created with identifier {{ param }}",
+      "updated": "A Opening Hours is updated with identifier {{ param }}",
+      "deleted": "A Opening Hours is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Opening Hours {{ id }}?"
+      },
+      "detail": {
+        "title": "Opening Hours"
+      },
+      "dayOfWeek": "Day Of Week",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "business": "Business"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "medappointApp": {
+    "Währung": {
+      "home": {
+        "title": "Währungen",
+        "createLabel": "Währung erstellen",
+        "createOrEditLabel": "Währung erstellen oder bearbeiten",
+        "notFound": "No Currencies found"
+      },
+      "created": "Währung erstellt mit ID {{ param }}",
+      "updated": "Währung aktualisiert mit ID {{ param }}",
+      "deleted": "Währung gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Währung {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Währung"
+      },
+      "name": "Name",
+      "isoCode": "ISO Code",
+      "symbol": "Symbol"
+    }
+  }
+}

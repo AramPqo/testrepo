@@ -1,0 +1,49 @@
+<full-calendar class="calendar-main" *ngIf="calendarOptions" #fullcalendar [options]="calendarOptions"></full-calendar>
+<div [class.d-none]="!isShowMiniCalendar" class="mini-calendar">
+    <ngb-datepicker [(ngModel)]="model" (dateSelect)="getSelectDate($event)" (navigate)="getNextMount($event)">
+    </ngb-datepicker>
+</div>
+
+<div #eventDetailIconContainer class="event-detail-icon-container d-none" (mouseover)="getEventDetails()">
+    <fa-icon icon="info"></fa-icon>
+</div>
+
+<div #eventDetailContainer class="event-detail-container d-none" 
+    (click)="getEventDetails()">
+    <div class="detail-header">
+        <div class="left-side">
+            <div (click)="updateEvent()">
+                <fa-icon icon="pencil-alt"></fa-icon>
+            </div>
+            <div>
+                <fa-icon icon="trash-alt"></fa-icon>
+            </div>
+        </div>
+        <div class="close" (click)="removeDetail()">
+            <span>&times;</span>
+        </div>
+    </div>
+    <div class="detail-content">
+        <div>
+            <p class="detail-title">Patient</p>
+            <p>{{calendarDetails.patient ? calendarDetails.patient : '-'}}</p>
+        </div>
+        <div>
+            <p class="detail-title">User</p>
+            <p>{{calendarDetails.user ? calendarDetails.user : '-'}}</p>
+        </div>
+        <div>
+            <p class="detail-title">Treatment</p>
+            <p>{{calendarDetails.treatment ? calendarDetails.treatment : '-'}}</p>
+        </div>
+        <div>
+            <p class="detail-title">Title</p>
+            <p>{{calendarDetails.title ? calendarDetails.title : '-'}}</p>
+        </div>
+    </div>
+    <div class="details-footer">
+        <div class="more-icon" tooltipClass="calendar-details-more-tooltip" placement="top" [ngbTooltip]="'More Info'">
+            <fa-icon class="more-details" icon="info-circle"></fa-icon>
+        </div>
+    </div>
+</div>

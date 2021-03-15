@@ -1,0 +1,33 @@
+{
+  "medappointApp": {
+    "appointment": {
+      "home": {
+        "title": "Termine",
+        "createLabel": "Termin erstellen",
+        "createOrEditLabel": "Termin erstellen oder bearbeiten",
+        "notFound": "Keine Termine gefunden"
+      },
+      "created": "Termin erstellt mit ID {{ param }}",
+      "updated": "Termin aktualisiert mit ID {{ param }}",
+      "deleted": "Termin gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Appointment {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Title",
+        "timeFrom": "Time From",
+        "timeTo": "Time To"
+      },
+      "startDate": "Beginn",
+      "endDate": "Ende",
+      "title": "Betreff",
+      "cancelled": "Storniert",
+      "colorCode": "Farbcode",
+      "missed": "Versäumt",
+      "notes": "Bemerkungen",
+      "user": "Mitarbeiter",
+      "patient": "Patient",
+      "treatment": "Behandlung"
+    }
+  }
+}

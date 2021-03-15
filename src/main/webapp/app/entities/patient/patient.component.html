@@ -1,0 +1,8 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="patients" 
+    title="patient" 
+    searchBy="fullName"
+    [dataCount]="3"
+    (deleteEmit)="deletePatient($event);"
+    (selectedEmit)="getSelectedData($event)"></jhi-data-table>

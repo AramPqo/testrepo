@@ -1,0 +1,40 @@
+.medappoint-timepicker-content {
+    width: 80px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.hidden-inp {
+    opacity: 0;
+    position: absolute;
+}
+
+.dropdown-menu {
+    height: 200px;
+    overflow: auto;
+    border-radius: 0;
+    min-width: 25px;
+}
+
+.time-picker-btn {
+    padding: 5px 10px;
+    border: 1px solid #c9c9c9;
+    background-color: #ffffff;
+    background-size: cover;
+    font-family: Roboto;
+    font-size: 18px;
+    color: #46555d;
+    text-decoration: none solid rgb(70, 85, 93);
+    border-radius: 0;
+    width: 85px;
+}
+
+.active-item {
+    background-color: #2C3E50;
+    color:#ffffff;
+}
+
+.dropdown-toggle::after {
+    vertical-align: 0.15em;
+}

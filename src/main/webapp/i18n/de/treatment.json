@@ -1,0 +1,25 @@
+{
+  "medappointApp": {
+    "treatment": {
+      "home": {
+        "title": "Treatments",
+        "createLabel": "Treatment erstellen",
+        "createOrEditLabel": "Treatment erstellen oder bearbeiten",
+        "notFound": "No Treatments found"
+      },
+      "created": "Treatment erstellt mit ID {{ param }}",
+      "updated": "Treatment aktualisiert mit ID {{ param }}",
+      "deleted": "Treatment gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Treatment {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Treatment"
+      },
+      "description": "Description",
+      "duration": "Duration",
+      "colorCode": "Color Code",
+      "business": "Business"
+    }
+  }
+}

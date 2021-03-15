@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-opening-hours-heading" jhiTranslate="medappointApp.openingHours.home.createOrEditLabel">Create or edit a Opening Hours</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medappointApp.openingHours.dayOfWeek" for="field_dayOfWeek">Day Of Week</label>
+                    <select class="form-control" name="dayOfWeek" formControlName="dayOfWeek" id="field_dayOfWeek">
+                        <option value="MONDAY">{{ 'medappointApp.DayOfWeek.MONDAY' | translate }}</option>
+                        <option value="TUESDAY">{{ 'medappointApp.DayOfWeek.TUESDAY' | translate }}</option>
+                        <option value="WEDNESDAY">{{ 'medappointApp.DayOfWeek.WEDNESDAY' | translate }}</option>
+                        <option value="THURSDAY">{{ 'medappointApp.DayOfWeek.THURSDAY' | translate }}</option>
+                        <option value="FRIDAY">{{ 'medappointApp.DayOfWeek.FRIDAY' | translate }}</option>
+                        <option value="SATURDAY">{{ 'medappointApp.DayOfWeek.SATURDAY' | translate }}</option>
+                        <option value="SUNDAY">{{ 'medappointApp.DayOfWeek.SUNDAY' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medappointApp.openingHours.startTime" for="field_startTime">Start Time</label>
+                    <input type="text" class="form-control" name="startTime" id="field_startTime"
+                           formControlName="startTime"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medappointApp.openingHours.endTime" for="field_endTime">End Time</label>
+                    <input type="text" class="form-control" name="endTime" id="field_endTime"
+                           formControlName="endTime"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medappointApp.openingHours.business" for="field_business">Business</label>
+                    <select class="form-control" id="field_business" name="business" formControlName="businessId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="businessOption.id" *ngFor="let businessOption of businesses; trackBy: trackById">{{ businessOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

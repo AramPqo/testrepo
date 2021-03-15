@@ -1,0 +1,15 @@
+{
+    "medappointApp": {
+        "calendar": {
+            "home": {
+                "title": "Calendar"
+            },
+            "header": {
+                "days": "Days En",
+                "day": "Day En",
+                "week": "Week En",
+                "today": "Today En"
+            }
+        }
+    }
+}

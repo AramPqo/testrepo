@@ -1,0 +1,8 @@
+<jhi-data-table 
+    [tableHeaders]="tableHeaders" 
+    [data]="appointments" 
+    title="appointments" 
+    searchBy="title"
+    (deleteEmit)="deleteAppointment($event);"
+    (selectedEmit)="getSelectedData($event)">
+</jhi-data-table>
