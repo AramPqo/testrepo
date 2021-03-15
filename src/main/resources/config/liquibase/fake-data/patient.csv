@@ -1,2 +1,0 @@
-id;first_name;last_name;title;gender;date_of_birth;email;phone;mobile;language;insurance_number;occupation;employer;initial_diagnose;work_phone;blue_prescription;yearly_receipt;payment_type
-1;Max;Mustermann;;MALE;1980-09-21T00:00:00;max.mustermann@gmail.com;+49-9876-2345678;+49-123-9876543;ENGLISH;;Architekt;Stark & Partner;neck pain;+49-8765-345678;true;false;CASH
